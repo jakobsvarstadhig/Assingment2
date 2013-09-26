@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">assingment2</string>
+    <string name="action_settings">Settings</string>
+    <string name="BarometerButton">Bar-o-Meter</string>
+    <string name="BarometerText"/>
+
+</resources>
