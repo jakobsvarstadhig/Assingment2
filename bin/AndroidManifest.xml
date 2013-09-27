@@ -5,8 +5,10 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:minSdkVersion="12"
+        android:targetSdkVersion="18" />
+    <uses-feature android:name="android.hardware.sensor.barometer"/>
+  
 
     <application
         android:allowBackup="true"
