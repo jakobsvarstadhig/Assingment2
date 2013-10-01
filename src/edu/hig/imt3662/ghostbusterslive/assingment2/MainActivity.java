@@ -11,7 +11,9 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity implements SensorEventListener {
@@ -19,6 +21,7 @@ public class MainActivity extends ListActivity implements SensorEventListener {
 	SensorManager mSensorManager;
 	List<Sensor> mSensors;
 	List<String> mSensorNames;
+	ArrayAdapter<String> mMainviewListAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +39,24 @@ public class MainActivity extends ListActivity implements SensorEventListener {
 			mSensorNames.add( mSensors.get( i ).getName() );
 		}
 		
-		setListAdapter( new ArrayAdapter<String>( this, 
+		mMainviewListAdapter = new ArrayAdapter<String>( this,
 				android.R.layout.simple_list_item_1,
-				mSensorNames ));
+				mSensorNames );
+		
+		setListAdapter( mMainviewListAdapter );
 		//setContentView(R.layout.activity_main);
+		
+	}
+	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		// TODO Auto-generated method stub
+		super.onListItemClick(l, v, position, id);
+		Toast.makeText(
+				getBaseContext(), 
+				"Uses " + mSensors.get(position).getPower() + "mA while in use.", 
+				Toast.LENGTH_SHORT)
+			.show();
 	}
 
 	@Override
