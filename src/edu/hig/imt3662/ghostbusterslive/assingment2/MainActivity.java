@@ -15,6 +15,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity implements SensorEventListener {
+	
+	SensorManager mSensorManager;
+	List<Sensor> mSensors;
+	List<String> mSensorNames;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +26,19 @@ public class MainActivity extends ListActivity implements SensorEventListener {
 		
 		
 		// Look for barometer sensor
-		SensorManager snsMgr = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
-		Sensor pS = snsMgr.getDefaultSensor(Sensor.TYPE_PRESSURE);
-		snsMgr.registerListener(this, pS, SensorManager.SENSOR_DELAY_UI);
+		mSensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
+		mSensors = mSensorManager.getSensorList( Sensor.TYPE_ALL );
+//		Sensor pS = snsMgr.getDefaultSensor(Sensor.TYPE_PRESSURE);
+//		snsMgr.registerListener(this, pS, SensorManager.SENSOR_DELAY_UI);
 
-		List<String> listToView = new ArrayList<String>();
-		listToView.add("Item 1");
-		listToView.add("Item 2");
+		mSensorNames = new ArrayList<String>();
+		for( int i = 0; i < mSensors.size(); ++i ) {
+			mSensorNames.add( mSensors.get( i ).getName() );
+		}
 		
 		setListAdapter( new ArrayAdapter<String>( this, 
 				android.R.layout.simple_list_item_1,
-				listToView ));
+				mSensorNames ));
 		//setContentView(R.layout.activity_main);
 	}
 
