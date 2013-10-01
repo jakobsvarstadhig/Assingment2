@@ -73,7 +73,7 @@ public class MainActivity extends ListActivity implements SensorEventListener {
 	    @Override
 	    public void onSensorChanged(SensorEvent event) {
 	        float[] values = event.values;
-	        Toast toast = Toast.makeText(getBaseContext(),"It is " + values[0], Toast.LENGTH_SHORT);
+	        Toast toast = Toast.makeText(getBaseContext(),getString(R.string.sensor_return_text) + values[0], Toast.LENGTH_SHORT);
 	        toast.show();
 	    }
 }
