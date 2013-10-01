@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">assingment2</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Oblig2</string>
+    <string name="action_settings">Innstillinger</string>
+    <string name="sensor_return_text">" gir utverdi: "</string>
     <string name="sensor_list_label">Liste over sensorer:</string>
-    <string name="sensor_return_text">Det er </string>
-    <string name="toast_message_p1"> bruker </string>
-    <string name="toast_message_p2"> mA når den er i bruk.</string>
+    <string name="toast_message_p1">" bruker "</string>
+    <string name="toast_message_p2">" mA når den er i bruk."</string>
 
 </resources>

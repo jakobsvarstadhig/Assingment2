@@ -50,13 +50,14 @@ public class MainActivity extends ListActivity implements SensorEventListener {
 	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
-		Toast.makeText(
-				getBaseContext(), 
-				getString(R.string.toast_message_p1) + mSensors.get(position).getPower() + getString(R.string.toast_message_p2), 
-				Toast.LENGTH_SHORT)
-			.show();
+//		Toast.makeText(
+//				getBaseContext(), 
+//				getString(R.string.toast_message_p1) + mSensors.get(position).getPower() + getString(R.string.toast_message_p2), 
+////				"Uses " + mSensors.get(position).getPower() + "mA while in use...", 
+//				Toast.LENGTH_SHORT)
+//			.show();
+		mSensorManager.registerListener(this, mSensors.get(position), SensorManager.SENSOR_DELAY_NORMAL);
 	}
 
 	@Override
@@ -68,12 +69,16 @@ public class MainActivity extends ListActivity implements SensorEventListener {
 
 	
 	@Override
-	    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-	    }
-	    @Override
-	    public void onSensorChanged(SensorEvent event) {
-	        float[] values = event.values;
-	        Toast toast = Toast.makeText(getBaseContext(),getString(R.string.sensor_return_text) + values[0], Toast.LENGTH_SHORT);
-	        toast.show();
-	    }
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		// ToDo: fill here if necessary.
+	}
+
+	@Override
+    public void onSensorChanged(SensorEvent event) {
+        float[] values = event.values;
+        String sensorName = event.sensor.getName();
+        Toast toast = Toast.makeText(getBaseContext(), sensorName + getString(R.string.sensor_return_text) + values[0], Toast.LENGTH_SHORT);
+        toast.show();
+        mSensorManager.unregisterListener(this);
+    }
 }
