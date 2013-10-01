@@ -54,7 +54,7 @@ public class MainActivity extends ListActivity implements SensorEventListener {
 		super.onListItemClick(l, v, position, id);
 		Toast.makeText(
 				getBaseContext(), 
-				"Uses " + mSensors.get(position).getPower() + "mA while in use.", 
+				getString(R.string.toast_message_p1) + mSensors.get(position).getPower() + getString(R.string.toast_message_p2), 
 				Toast.LENGTH_SHORT)
 			.show();
 	}
