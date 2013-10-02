@@ -4,8 +4,7 @@
     <string name="app_name">assingment2</string>
     <string name="action_settings">Settings</string>
     <string name="sensor_return_text">" gives the output: "</string>
-    <string name="sensor_list_label">List of sensors:</string>
-    <string name="toast_message_p1">" uses "</string>
-    <string name="toast_message_p2">" mA when it is in use."</string>
+
+
 
 </resources>

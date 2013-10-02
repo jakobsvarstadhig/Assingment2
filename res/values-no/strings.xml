@@ -4,8 +4,7 @@
     <string name="app_name">Oblig2</string>
     <string name="action_settings">Innstillinger</string>
     <string name="sensor_return_text">" gir utverdi: "</string>
-    <string name="sensor_list_label">Liste over sensorer:</string>
-    <string name="toast_message_p1">" bruker "</string>
-    <string name="toast_message_p2">" mA når den er i bruk."</string>
+
+
 
 </resources>
